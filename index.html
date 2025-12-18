@@ -23,15 +23,24 @@
                 <div class="input-container bg-green-300 p-2 space-y-3">
                     <div class="bg-gray-400">
                         <label for="input1" class="">Enter first digit:</label>
-                        <input type="text" id="input1" class="w-full border p-1 rounded" placeholder="Enter first digit here">
+                        <input type="number" id="input1" class="w-full border border-gray-500 border-[2px] p-2 rounded" placeholder="Enter first digit here">
                     </div>
                     <div class="bg-gray-400">
                         <label for="input2" class="">Enter second digit:</label>
-                        <input type="text" id="input2" class="w-full border p-1 rounded" placeholder="Enter second digit here">
+                        <input type="number" id="input2" class="w-full border border-gray-500 border-[2px] p-2 rounded" placeholder="Enter second digit here">
+                    </div>
+                    <div class="bg-gray-400">
+                        <label for="operation" class="">Select operation to perform:</label>
+                        <select id="operation" class="w-full p-2 border rounded">
+                            <option value="add">Addition (+)</option>
+                            <option value="subtract">Subtraction (-)</option>
+                            <option value="multiply">Multiplication (×)</option>
+                            <option value="divide">Division (÷)</option>
+                        </select>
                     </div>
                 </div>
                 <div class="flex justify-center mt-4">
-                    <input type="submit" id="submit" value="Enter" class="p-2 rounded-lg bg-blue-400 hover:bg-blue-600">
+                    <input type="submit" id="submit" value="Enter" class="p-2 rounded-lg text-white bg-blue-500 hover:bg-blue-600">
                 </div>
             </section>
         </main>
@@ -40,9 +49,63 @@
             <p>@ Calculator Khiruba 2025</p>
         </footer>
 
-        <script src="#"></script>
+        <!-- <script src="#"></script> -->
+         <script>
+            // Method 1: Results shown in Inline Alert
+            // const input1 = document.getElementById('input1');
+            // const input2 = document.getElementById('input2');
+            // const operation = document.getElementById('operation');
+            // const submit = document.getElementById('submit');
+
+            // submit.addEventListener('click', function(event) {
+            //     event.preventDefault();
+
+            //     const num1 = parseFloat(input1.value);
+            //     const num2 = parseFloat(input2.value);
+
+            //     if (isNaN(num1) || isNaN(num2)) {
+            //         alert("Please enter valid numbers!");
+            //         return;
+            //     }
+
+            //     if (operation.value === 'add') {
+            //         const result = num1 + num2;
+            //         alert("Result: " + result);
+            //     } else {
+            //         alert("Only addition available now :(");
+            //     }
+               
+            // });
+
+            // Method 2: Single function for all operations.
+            function calculate(num1, num2, op) {
+                switch(op) {
+                    case 'add': return num1 + num2;
+                    case 'subtract': return num1 - num2;
+                    case 'multiply': return num1 * num2;
+                    case 'divide': return num1 / num2;
+                    default: return null;
+                }
+            }
+
+            // can declare const op and use operation.value as well            
+
+            submit.addEventListener('click', function(event) {
+                event.preventDefault();
+                const num1 = parseFloat(input1.value);
+                const num2 = parseFloat(input2.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    alert("Please enter valid numbers!");
+                    return;
+                }
+
+                const result = calculate(num1, num2, operation.value);
+                alert("Results: " + result);
+            });
+
+         </script>
     </div>
 
 </body>
 </html>
-
