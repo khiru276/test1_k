@@ -7,6 +7,7 @@ HTML, CSS, and JavaScript fundamentals.
 
 ### 1. Simple Calculator
 - Built using HTML, CSS, and JavaScript
+- Used Tailwind CSS CDN
 - Implements basic arithmetic operations
 - Focus on DOM manipulation and event handling
 
